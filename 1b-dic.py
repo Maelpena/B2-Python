@@ -1,11 +1,25 @@
 #!/usr/bin/env python36
 
+import re
+
+pattern = re.compile('^([a-z]|[A-Z])*$')
+
 compt=0
 list = []
-list.append(input("prenom 1 : "))
-while list[compt] != "q":
-  list.append(input("prenom suivant : "))
-  compt += 1
+
+var = input("prenom 1 : ")
+
+if pattern.match(var):
+  list.append(var)
+  while list[compt] != "q":
+    var = input("prenom suivant : ")
+    if pattern.match(var):
+      list.append(var)
+      compt += 1
+    else:
+      print("Cela n'est pas un prenom")
+else:
+  print ("ce n'est pas un prenom")
 
 
 del list[compt]
