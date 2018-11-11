@@ -1,5 +1,10 @@
 #!/usr/bin/env python36
 
+#1b-dic.py
+#Mael PENA
+#11 nov 2018
+
+
 import re
 
 pattern = re.compile('^([a-z]|[A-Z])*$')

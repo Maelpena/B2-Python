@@ -1,5 +1,10 @@
 #!/usr/bin/env python36
 
+#1c-moy.py
+#Mael PENA
+#11 nov 2018
+
+
 import re
 
 patt = re.compile('^([a-z]|[A-Z])*$')

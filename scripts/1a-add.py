@@ -1,5 +1,12 @@
 #!/usr/bin/env python36
 
+#1a-add.py
+#Mael PENA
+#11 nov 2018
+
+
+
+
 import re
 
 patern = re.compile('^[0-9]*$')

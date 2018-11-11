@@ -1,5 +1,10 @@
 #!/usr/bin/env python36
 
+#1d-mol.py
+#Mael PENA
+#11 nov 2018
+
+
 import sys
 import signal
 def quitter(r):

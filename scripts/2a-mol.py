@@ -1,5 +1,10 @@
 #!/usr/bin/env python36
 
+#2a-mol.py
+#Mael PENA
+#11 nov 2018
+
+
 from os import chdir
 chdir("/home/maelpena/B2-Python")
 
