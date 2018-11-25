@@ -20,32 +20,36 @@ args = parser.parse_args()
 
 
 if args.list:
+  
   with open ("ma_liste.csv", "r") as ma_liste:
+   
     reader = csv.reader(ma_liste)
     for row in reader:
       print(' '.join(row))
 
 
 elif (args.ajout != None):
+  
   with open ("ma_liste.csv", "a") as ma_liste:
+   
     writer = csv.writer(ma_liste)
     writer.writerows([a] for a in args.ajout)
   
 
 elif args.suppr:
-
+  
   truncate_list = open("ma_liste.csv", "w+")
   truncate_list.close()
 
+
 elif args.option:
-
+  
   if args.max:   
-
+   
     with open('ma_liste.csv', 'r') as ma_liste:
+    
       reader = csv.reader(ma_liste)
-
       tab = []
-
       for row in reader:
         for var in row:
           var = int(var)
@@ -54,26 +58,26 @@ elif args.option:
       maxi = max(tab)
       print(maxi)
 
+
   elif args.min:
 
       with open('ma_liste.csv', 'r') as ma_liste:
-        reader = csv.reader(ma_liste)
 
+        reader = csv.reader(ma_liste)
         tab = []
-        
         for row in reader:
           for var in row:
             var = int(var)
-            
             tab.append(var)
+ 
         mini = min(tab)
         print(mini)
 
 
   elif args.moy:
 
-
     with open('ma_liste.csv', 'r') as ma_liste:
+
       reader = csv.reader(ma_liste)
       tab = []
       for row in reader:
@@ -81,21 +85,39 @@ elif args.option:
           var = int(var)
           tab.append(var)        
 
-      moyenne = sum(ma_liste)/len(ma_liste)
-      print(len(ma_liste))
+      moyenne = sum(tab)/len(tab)
+      print(moyenne)
 
 
   elif args.sum:
-    i = 0
-    somme = 0
-    while i != len(ma_liste):
-      somme += int(ma_liste[i])
-      i += 1
-    print("La somme des elements de la liste est de", somme)
+
+    with open('ma_liste.csv', 'r') as ma_liste:
+
+      reader = csv.reader(ma_liste)
+      tab = []
+      for row in reader:
+        for var in row:
+          var = int(var)
+          tab.append(var)
+
+      somme = sum(tab)
+      print(somme)
 
 
 elif args.trie:
-  ma_liste.sort()
-  if args.desc:   
-    ma_liste.reverse()
-  print(ma_liste)
+
+  with open('ma_liste.csv', 'r') as ma_liste:
+
+    reader = csv.reader(ma_liste)
+    tab = []
+    for row in reader:
+      for var in row:
+        var = int(var)
+        tab.append(var)
+    tab.sort()
+
+    if args.desc:
+
+      tab.reverse()
+
+    print (tab)
