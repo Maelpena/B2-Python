@@ -1,6 +1,7 @@
 #!/usr/bin/env python36
 
 import argparse
+import csv
 
 parser = argparse.ArgumentParser()
 
@@ -18,39 +19,71 @@ parser.add_argument("--desc", help="Trie les element de la liste dans l'ordre de
 args = parser.parse_args()
 
 
-ma_liste=[4,5,2,3,4]
-
 if args.list:
-  print(ma_liste)
+  with open ("ma_liste.csv", "r") as ma_liste:
+    reader = csv.reader(ma_liste)
+    for row in reader:
+      print(' '.join(row))
+
 
 elif (args.ajout != None):
-  ma_liste = ma_liste + args.ajout
-  print(ma_liste)
+  with open ("ma_liste.csv", "a") as ma_liste:
+    writer = csv.writer(ma_liste)
+    writer.writerows([a] for a in args.ajout)
+  
 
 elif args.suppr:
-  while ma_liste != []:
-    i=0
-    del ma_liste[i]
-    i += 1
-  print(ma_liste)
+
+  truncate_list = open("ma_liste.csv", "w+")
+  truncate_list.close()
 
 elif args.option:
 
   if args.max:   
-    print("La valeur maximale de la liste est",max(ma_liste))
+
+    with open('ma_liste.csv', 'r') as ma_liste:
+      reader = csv.reader(ma_liste)
+
+      tab = []
+
+      for row in reader:
+        for var in row:
+          var = int(var)
+          tab.append(var)
+
+      maxi = max(tab)
+      print(maxi)
 
   elif args.min:
-    print("La valeur minimale de la liste est", min(ma_liste))
+
+      with open('ma_liste.csv', 'r') as ma_liste:
+        reader = csv.reader(ma_liste)
+
+        tab = []
+        
+        for row in reader:
+          for var in row:
+            var = int(var)
+            
+            tab.append(var)
+        mini = min(tab)
+        print(mini)
+
 
   elif args.moy:
-    i = 0
-    somme = 0
-    moy = 0
-    while i != len(ma_liste):
-      somme += int(ma_liste[i])
-      i += 1
-    moy = somme/len(ma_liste)
-    print("La moyenne de la liste est",moy)
+
+
+    with open('ma_liste.csv', 'r') as ma_liste:
+      reader = csv.reader(ma_liste)
+      tab = []
+      for row in reader:
+        for var in row:
+          var = int(var)
+          tab.append(var)        
+
+      moyenne = sum(ma_liste)/len(ma_liste)
+      print(len(ma_liste))
+
 
   elif args.sum:
     i = 0
