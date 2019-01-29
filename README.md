@@ -1,6 +1,1 @@
-#odjfoofjojfg
-
-
-
-
-# toto
+Exercice python
